@@ -28,8 +28,9 @@ const Signin = () => {
 
             const data = await response.json();
             if (response.ok) {
+                localStorage.setItem('authToken', data.token);
                 setMessage("Login successful!");
-                navigate('/'); // Redirect after login
+                navigate('/');
             } else {
                 setMessage(data.msg || "Login failed");
             }
