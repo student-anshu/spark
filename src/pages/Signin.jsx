@@ -20,7 +20,7 @@ const Signin = () => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <div className="flex items-center justify-center min-h-screen bg-gray-100 bg-cover bg-center bg-no-repeat w-full h-full" style={{
+            <div className="flex items-center justify-center min-h-screen bg-gray-100 bg-cover bg-center bg-no-repeat" style={{
                 userSelect: "none",
             }}>
                 <div className="relative flex flex-col m-6 space-y-8 bg-white shadow-2xl rounded-2xl md:flex-row md:space-y-0">
