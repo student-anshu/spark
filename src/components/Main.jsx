@@ -1,12 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 const Main = () => {
     return (
-        <div className='min-w-[49%]'>
-
-
+        <div className='flex-grow bg-red-600 p-4'>
+            <h1>Hiiiii</h1>
         </div>
-    )
+    );
 }
 
-export default Main
+export default Main;

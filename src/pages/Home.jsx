@@ -1,16 +1,16 @@
-import React from 'react'
-import Sidebar from '../components/Sidebar'
-import Main from '../components/Main'
-import Details from '../components/Details'
+import React from 'react';
+import Sidebar from '../components/Sidebar';
+import Main from '../components/Main';
+import Details from '../components/Details';
 
 const Home = () => {
     return (
-        <div className='flex h-screen w-screen'>
+        <div className='flex h-screen w-screen p-6 gap-4'>
             <Sidebar />
             <Main />
             <Details />
         </div>
-    )
+    );
 }
 
-export default Home
+export default Home;

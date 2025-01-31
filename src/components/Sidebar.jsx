@@ -1,17 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { FiMenu } from "react-icons/fi";
 
 const Sidebar = () => {
-    return (
+    const [isCollapsed, setIsCollapsed] = useState(false);
 
-        <div className='m-6 bg-gray-200 min-w-[20%] rounded-xl'>
+    return (
+        <div className={`h-full ${isCollapsed ? 'w-16' : 'w-[20%] bg-gray-200'}  rounded-xl transition-all duration-500 overflow-hidden`}>
             <div className='flex p-4 justify-between items-center'>
-                <h1 className='text-2xl font-bold font-sans'>Menu</h1>
-                <FiMenu className='text-2xl font-bold cursor-pointer' />
+                {!isCollapsed && <h1 className='text-2xl font-bold font-sans whitespace-nowrap'>Menu</h1>}
+                <FiMenu
+                    className='text-2xl font-bold cursor-pointer'
+                    onClick={() => setIsCollapsed(!isCollapsed)}
+                />
             </div>
         </div>
-
-    )
+    );
 }
 
-export default Sidebar
+export default Sidebar;
