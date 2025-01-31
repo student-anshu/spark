@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import login_sidebar from '../assets/login_sidebar.jpg';
 import { Link } from "react-router-dom";
-import { Eye, EyeOff } from 'lucide-react'; // For eye icon
+import { Eye, EyeOff } from 'lucide-react';
 
 const Signup = () => {
     const [formData, setFormData] = useState({
@@ -10,16 +10,33 @@ const Signup = () => {
         password: ''
     });
     const [showPassword, setShowPassword] = useState(false);
+    const [message, setMessage] = useState('');
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         console.log('Name:', formData.name);
         console.log('Email:', formData.email);
         console.log('Password:', formData.password);
+        try {
+            const response = await fetch('http://localhost:5000/api/auth/signup', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+
+            const data = await response.json();
+            if (response.ok) {
+                setMessage("Signup successful! You can now log in.");
+            } else {
+                setMessage(data.msg || "Signup failed");
+            }
+        } catch (error) {
+            setMessage("Error connecting to server");
+        }
     };
 
     return (
@@ -27,11 +44,12 @@ const Signup = () => {
             <div className="flex items-center justify-center min-h-screen bg-gray-100 bg-cover bg-center bg-no-repeat" style={{ userSelect: "none" }}>
                 <div className="relative flex flex-col m-6 space-y-8 bg-white shadow-2xl rounded-2xl md:flex-row md:space-y-0">
 
-                    {/* Form Section */}
+
                     <div className="flex flex-col justify-center p-8 md:p-14">
                         <h2 className="mb-3 text-center text-4xl font-bold md:text-[3.3rem]">
                             Sign Up
                         </h2>
+                        {message && <p className="text-center text-red-500">{message}</p>}
 
                         <div className="pt-4">
                             <label className="mb-2 text-md">Enter Your Username</label>
@@ -57,7 +75,7 @@ const Signup = () => {
                             />
                         </div>
 
-                        {/* Password with Show/Hide Option */}
+
                         <div className="py-4 relative">
                             <label className="mb-2 text-md">Password (6 or more characters)</label>
                             <input
@@ -92,7 +110,7 @@ const Signup = () => {
                         </p>
                     </div>
 
-                    {/* Sidebar Image */}
+
                     <div className="relative hidden md:block">
                         <img
                             src={login_sidebar}

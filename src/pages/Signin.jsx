@@ -1,20 +1,41 @@
 import React, { useState } from 'react';
 import login_sidebar from '../assets/login_sidebar.jpg';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const Signin = () => {
 
     const [formData, setFormData] = useState({ email: '', password: '' });
+    const [message, setMessage] = useState('');
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         console.log('Email:', formData.email);
         console.log('Password:', formData.password);
+
+        try {
+            const response = await fetch('http://localhost:5000/api/auth/signin', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                credentials: 'include',
+                body: JSON.stringify(formData)
+            });
+
+            const data = await response.json();
+            if (response.ok) {
+                setMessage("Login successful!");
+                navigate('/'); // Redirect after login
+            } else {
+                setMessage(data.msg || "Login failed");
+            }
+        } catch (error) {
+            setMessage("Error connecting to server");
+        }
     };
 
 
@@ -29,6 +50,8 @@ const Signin = () => {
                         <h2 className="mb-3 text-center text-4xl font-bold md:text-[3.3rem]">
                             Welcome back
                         </h2>
+                        {message && <p className="text-center text-red-500">{message}</p>}
+
                         <p className="font-light text-center text-gray-400 mb-8">
                             Welcome back! Please enter your details
                         </p>
