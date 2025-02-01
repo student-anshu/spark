@@ -17,7 +17,7 @@ enter karna h
 
 uske baad normally github par ja kar open with vs code karna h uska terminal par 
 
-npm run dev
+*npm run dev*
 
 enter karna h 
 
