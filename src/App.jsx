@@ -4,6 +4,7 @@ import Signin from './pages/Signin'
 import Signup from './pages/Signup';
 import Home from './pages/Home';
 import ProtectedRoute from "./components/ProtectedRoute";
+import Calcender from './pages/calcender';
 
 
 const App = () => {
@@ -17,6 +18,10 @@ const App = () => {
           {/* Protected Routes */}
           <Route element={<ProtectedRoute />}>
             <Route path="/" element={<Home />} />
+          </Route>
+
+          <Route element={<ProtectedRoute />}>
+            <Route path="/calender" element={<Calcender />} />
           </Route>
 
           {/* Redirect any unknown routes */}

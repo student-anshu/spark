@@ -19,6 +19,9 @@ const Sidebar = () => {
         navigate('/login')
     };
 
+    const cal = () => {
+        navigate('/calender')
+    }
 
     return (
         <div className={`h-full p-4 ${isCollapsed ? 'w-16' : 'w-[20%] bg-gray-200'}  rounded-xl transition-all duration-500 overflow-hidden`}>
@@ -54,7 +57,7 @@ const Sidebar = () => {
 
             </div>}
 
-            {!isCollapsed && <div className='CALENDAR cursor-pointer flex mt-3'>
+            {!isCollapsed && <div onClick={cal} className='CALENDAR cursor-pointer flex mt-3'>
                 <SlCalender className='text-gray-700 text-xl font-bold mt-1' />
                 <h2 className='px-3 text-gray-600 font-medium'>Calendar</h2>
                 <div className='ml-33 w-5 rounded-md mt-1 flex justify-center items-center bg-gray-300'>
@@ -109,25 +112,25 @@ const Sidebar = () => {
             {!isCollapsed && <h1 className='text-gray-700 font-bold text-sm mt-2'>TAGS</h1>}
             {!isCollapsed && <div className='w-full flex gap-3 '>
                 <div className='px-2 py-0.5 mt-1 cursor-pointer bg-blue-200 rounded-md flex items-center'>
-                     <h1 className='font-semibold text-gray-600'>Tag 1</h1>
+                    <h1 className='font-semibold text-gray-600'>Tag 1</h1>
                 </div>
 
                 <div className='px-2 py-0.5 mt-1 cursor-pointer bg-pink-400 rounded-md flex items-center'>
-                     <h1 className='font-semibold text-gray-600'>Tag 2</h1>
-                </div> 
+                    <h1 className='font-semibold text-gray-600'>Tag 2</h1>
+                </div>
 
                 <div className='px-2 py-0.5 mt-1 cursor-pointer bg-gray-300 rounded-md  flex items-center'>
-                     <h1 className='font-semibold flex items-center justify-center text-gray-600'> 
-                     <IoAddOutline className='text-gray-700 text-xl font-bold ' />
+                    <h1 className='font-semibold flex items-center justify-center text-gray-600'>
+                        <IoAddOutline className='text-gray-700 text-xl font-bold ' />
                         Add Tag</h1>
                 </div>
 
             </div>}
-           
+
             {!isCollapsed && <div onClick={logout} className='CALENDAR cursor-pointer flex mt-20'>
-                <FaSignOutAlt  className='text-gray-700 text-xl font-bold mt-1' />
+                <FaSignOutAlt className='text-gray-700 text-xl font-bold mt-1' />
                 <h2 className='px-3 text-gray-600 font-medium'>Sign Out</h2>
-                
+
 
             </div>}
 
