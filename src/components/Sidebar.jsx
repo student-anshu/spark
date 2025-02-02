@@ -8,9 +8,13 @@ import { FaNoteSticky } from "react-icons/fa6";
 import { IoAddOutline } from "react-icons/io5";
 import { FaSignOutAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
+
 
 const Sidebar = () => {
     const [isCollapsed, setIsCollapsed] = useState(false);
+
+    const location = useLocation();
 
     const navigate = useNavigate();
 
@@ -26,6 +30,12 @@ const Sidebar = () => {
     const today = () => {
         navigate('/today')
     }
+
+    const isTodayActive = location.pathname === '/today';
+    const isUpcomingActive = location.pathname === '/upcoming';
+    const isStickActive = location.pathname === '/stick';
+    const isCalenderActive = location.pathname === '/calender';
+
 
     return (
         <div className={`h-full p-4 ${isCollapsed ? 'w-[4rem]' : 'bg-gray-200 lg:w-[20%] md:w-[25%] sm:w-[30%] xs:w-[40%]'} flex-shrink-0 rounded-xl transition-all duration-500 overflow-hidden flex flex-col justify-between`}>
@@ -53,7 +63,7 @@ const Sidebar = () => {
 
                 </div>
                 }
-                {!isCollapsed && <div onClick={today} className='TODAY cursor-pointer flex items-center hover:bg-gray-300 p-2 rounded-md transition-all'>
+                {!isCollapsed && <div onClick={today} className={`TODAY cursor-pointer flex items-center hover:bg-gray-300 p-2 rounded-md transition-all ${isTodayActive ? 'bg-gray-500 text-white' : ''}`}>
                     <PiListChecks className='text-gray-700 text-2xl font-bold' />
                     <h2 className='px-3 text-gray-600 font-medium'>Today</h2>
                     <div className='ml-auto w-5 rounded-md flex justify-center items-center bg-white'>
@@ -62,7 +72,7 @@ const Sidebar = () => {
 
                 </div>}
 
-                {!isCollapsed && <div onClick={cal} className='CALENDAR cursor-pointer flex items-center hover:bg-gray-300 p-2 rounded-md transition-all'>
+                {!isCollapsed && <div onClick={cal} className={`CALENDAR cursor-pointer flex items-center hover:bg-gray-300 p-2 rounded-md transition-all ${isCalenderActive ? 'bg-gray-500 text-white' : ''}`}>
                     <SlCalender className='text-gray-700 text-xl font-bold' />
                     <h2 className='px-3 text-gray-600 font-medium'>Calendar</h2>
                     <div className='ml-auto w-5 rounded-md flex justify-center items-center bg-gray-300'>
