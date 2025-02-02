@@ -5,6 +5,7 @@ import Signup from './pages/Signup';
 import Today from './pages/Today';
 import ProtectedRoute from "./components/ProtectedRoute";
 import Calcender from './pages/calcender';
+import NewTask from './pages/NewTask';
 
 
 const App = () => {
@@ -26,6 +27,10 @@ const App = () => {
 
           <Route element={<ProtectedRoute />}>
             <Route path="/today" element={<Today />} />
+          </Route>
+
+          <Route element={<ProtectedRoute />}>
+            <Route path="/create" element={<NewTask />} />
           </Route>
 
           {/* Redirect any unknown routes */}
