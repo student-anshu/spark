@@ -3,7 +3,7 @@ import Sidebar from '../components/Sidebar';
 import Main from '../components/Main';
 import Details from '../components/Details';
 
-const Home = () => {
+const Today = () => {
     return (
         <div className='flex h-screen w-screen p-6 gap-4'>
             <Sidebar />
@@ -13,4 +13,4 @@ const Home = () => {
     );
 }
 
-export default Home;
+export default Today;

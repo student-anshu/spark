@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Signin from './pages/Signin'
 import Signup from './pages/Signup';
-import Home from './pages/Home';
+import Today from './pages/Today';
 import ProtectedRoute from "./components/ProtectedRoute";
 import Calcender from './pages/calcender';
 
@@ -17,11 +17,15 @@ const App = () => {
 
           {/* Protected Routes */}
           <Route element={<ProtectedRoute />}>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Today />} />
           </Route>
 
           <Route element={<ProtectedRoute />}>
             <Route path="/calender" element={<Calcender />} />
+          </Route>
+
+          <Route element={<ProtectedRoute />}>
+            <Route path="/today" element={<Today />} />
           </Route>
 
           {/* Redirect any unknown routes */}
