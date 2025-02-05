@@ -14,7 +14,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: "https://atodo-spark.onrender.com/", // Frontend URL
+    origin: "*", // Frontend URL
     credentials: true // Allow sending cookies
 }));
 
