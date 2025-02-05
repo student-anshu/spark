@@ -8,7 +8,7 @@ import { FaNoteSticky } from "react-icons/fa6";
 import { IoAddOutline } from "react-icons/io5";
 import { FaSignOutAlt } from "react-icons/fa";
 import { useNavigate, useLocation } from "react-router-dom";
-import TaskList from "./TaskList";
+import TaskList from "./Tasklist";
 
 const Sidebar = () => {
     const [isCollapsed, setIsCollapsed] = useState(false);
