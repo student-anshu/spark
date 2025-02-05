@@ -6,37 +6,53 @@ import Today from './pages/Today';
 import ProtectedRoute from "./components/ProtectedRoute";
 import Calcender from './pages/calcender';
 import NewTask from './pages/NewTask';
+import { AuthProvider } from './context/AuthContext';
+import Task from './pages/Task';
+import Up from './pages/Up';
+import StickyWall from './pages/StickyWall';
+
 
 
 const App = () => {
   return (
     <>
+
       <Router>
-        <Routes>
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/signin" element={<Signin />} />
+        <AuthProvider>
+          <Routes>
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/signin" element={<Signin />} />
 
-          {/* Protected Routes */}
-          <Route element={<ProtectedRoute />}>
-            <Route path="/" element={<Today />} />
-          </Route>
+            {/* Protected Routes */}
+            <Route element={<ProtectedRoute />}>
+              <Route path="/" element={<Today />} />
+            </Route>
 
-          <Route element={<ProtectedRoute />}>
-            <Route path="/calender" element={<Calcender />} />
-          </Route>
+            <Route element={<ProtectedRoute />}>
+              <Route path="/calender" element={<Calcender />} />
+            </Route>
+            <Route element={<ProtectedRoute />}>
+              <Route path="/upcoming" element={<Up />} />
+            </Route>
+            <Route element={<ProtectedRoute />}>
+              <Route path="/sticky" element={<StickyWall />} />
+            </Route>
+            <Route element={<ProtectedRoute />}>
+              <Route path="/today" element={<Today />} />
+            </Route>
+            <Route element={<ProtectedRoute />}>
+              <Route path="/tasks/:listId" element={<Task />} />
+            </Route>
+            <Route element={<ProtectedRoute />}>
+              <Route path="/create" element={<NewTask />} />
+            </Route>
 
-          <Route element={<ProtectedRoute />}>
-            <Route path="/today" element={<Today />} />
-          </Route>
-
-          <Route element={<ProtectedRoute />}>
-            <Route path="/create" element={<NewTask />} />
-          </Route>
-
-          {/* Redirect any unknown routes */}
-          <Route path="*" element={<Signin />} />
-        </Routes>
+            {/* Redirect any unknown routes */}
+            <Route path="*" element={<Signin />} />
+          </Routes>
+        </AuthProvider>
       </Router>
+
     </>
   )
 }

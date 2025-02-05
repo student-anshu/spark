@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import login_sidebar from '../assets/login_sidebar.jpg';
 import { Link, useNavigate } from "react-router-dom";
 
-
 const Signin = () => {
-
     const [formData, setFormData] = useState({ email: '', password: '' });
     const [message, setMessage] = useState('');
     const navigate = useNavigate();
@@ -15,19 +13,18 @@ const Signin = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Email:', formData.email);
-        console.log('Password:', formData.password);
 
         try {
             const response = await fetch('http://localhost:5000/api/auth/signin', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                credentials: 'include',
+                credentials: 'include',  // Makes cookies accessible
                 body: JSON.stringify(formData)
             });
 
             const data = await response.json();
             if (response.ok) {
+                // Store token in localStorage
                 localStorage.setItem('authToken', data.token);
                 setMessage("Login successful!");
                 navigate('/');
@@ -111,7 +108,6 @@ const Signin = () => {
                 </div>
             </div>
         </form>
-
     );
 };
 

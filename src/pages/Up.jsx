@@ -1,16 +1,14 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar';
-import Main from '../components/Main';
-import Details from '../components/Details';
+import Upcoming from '../components/Upcoming';
 
-const Today = () => {
+const Up = () => {
     return (
         <div className='flex h-screen w-screen p-6 gap-4'>
             <Sidebar />
-            <Main />
-            {/* <Details /> */}
+            <Upcoming />
         </div>
     );
 }
 
-export default Today;
+export default Up;

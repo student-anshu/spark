@@ -1,23 +1,36 @@
-require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
-const cookieParser = require('cookie-parser');
-const connectDB = require('./config/db');
-const authRoutes = require('./routes/authRoutes');
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const cookieParser = require("cookie-parser");
+require("dotenv").config();
+
+// Import routes
+const authRoutes = require("./routes/auth");
+const taskRoutes = require("./routes/task");
+const listRoutes = require("./routes/list");
+const sticky = require("./routes/sticky");
 
 const app = express();
-
-// Middleware
-app.use(cors({ credentials: true, origin: 'http://localhost:5173' }));
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors({
+    origin: "http://localhost:5173", // Frontend URL
+    credentials: true // Allow sending cookies
+}));
 
-// Connect to Database
-connectDB();
+// Connect to MongoDB
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log("MongoDB connected"))
+    .catch((err) => console.log(err));
 
 // Routes
-app.use('/api/auth', authRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/tasks", taskRoutes);
+app.use("/api/stickies", sticky);
+// backend/server.js
+app.use('/lists', listRoutes); // This ensures that /lists routes are handled correctly
 
-// Start Server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+// Start server
+const port = process.env.PORT || 5000;
+app.listen(port, () => console.log(`Server running on port ${port}`));
