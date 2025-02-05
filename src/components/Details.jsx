@@ -25,7 +25,7 @@ const Details = ({ task, closePanel, refreshTasks }) => {
                     return;
                 }
 
-                const response = await fetch("http://todo-spark.onrender.com:5000/lists", {
+                const response = await fetch("https://todo-spark.onrender.com:5000/lists", {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -96,7 +96,7 @@ const Details = ({ task, closePanel, refreshTasks }) => {
             // Debugging request body
             console.log("Sending updated task:", formattedTask);
 
-            const response = await fetch(`http://todo-spark.onrender.com:5000/api/tasks/${task._id}`, {
+            const response = await fetch(`https://todo-spark.onrender.com:5000/api/tasks/${task._id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -135,7 +135,7 @@ const Details = ({ task, closePanel, refreshTasks }) => {
                 return;
             }
 
-            const response = await fetch(`http://todo-spark.onrender.com:5000/api/tasks/${task._id}`, {
+            const response = await fetch(`https://todo-spark.onrender.com:5000/api/tasks/${task._id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -168,7 +168,7 @@ const Details = ({ task, closePanel, refreshTasks }) => {
                 return;
             }
 
-            const response = await fetch(`http://todo-spark.onrender.com:5000/api/tasks/${task._id}`, {
+            const response = await fetch(`https://todo-spark.onrender.com:5000/api/tasks/${task._id}`, {
                 method: "DELETE",
                 headers: {
                     Authorization: `Bearer ${token}`,
