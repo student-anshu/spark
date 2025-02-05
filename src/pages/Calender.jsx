@@ -2,7 +2,7 @@ import React from 'react';
 import Sidebar from '../components/Sidebar';
 import Calendar from '../components/calender';
 
-const Calcender = () => {
+const Calender = () => {
     return (
         <div className='flex h-screen w-screen p-6 gap-4'>
             <Sidebar />
@@ -11,4 +11,4 @@ const Calcender = () => {
     );
 };
 
-export default Calcender;
+export default Calender;

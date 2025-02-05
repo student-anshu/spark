@@ -4,7 +4,7 @@ import Signin from './pages/Signin'
 import Signup from './pages/Signup';
 import Today from './pages/Today';
 import ProtectedRoute from "./components/ProtectedRoute";
-import Calcender from './pages/calcender';
+import Calender from './pages/calender';
 import NewTask from './pages/NewTask';
 import { AuthProvider } from './context/AuthContext';
 import Task from './pages/Task';
@@ -29,7 +29,7 @@ const App = () => {
             </Route>
 
             <Route element={<ProtectedRoute />}>
-              <Route path="/calender" element={<Calcender />} />
+              <Route path="/calender" element={<Calender />} />
             </Route>
             <Route element={<ProtectedRoute />}>
               <Route path="/upcoming" element={<Up />} />
