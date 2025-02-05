@@ -4,7 +4,7 @@ import Signin from './pages/Signin'
 import Signup from './pages/Signup';
 import Today from './pages/Today';
 import ProtectedRoute from "./components/ProtectedRoute";
-import Calender from './pages/calender';
+import Calender from './pages/Calender';
 import NewTask from './pages/NewTask';
 import { AuthProvider } from './context/AuthContext';
 import Task from './pages/Task';
