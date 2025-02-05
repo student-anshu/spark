@@ -18,7 +18,7 @@ const EventDetails = ({ event, onClose, refreshEvents }) => {
         }
 
         try {
-            const response = await fetch(`http://localhost:5000/api/tasks/${event.id}`, {
+            const response = await fetch(`http://todo-spark.onrender.com:5000/api/tasks/${event.id}`, {
                 method: "PUT",
                 headers: {
                     "Authorization": `Bearer ${token}`,

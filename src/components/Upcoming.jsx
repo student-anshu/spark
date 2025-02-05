@@ -51,7 +51,7 @@ const Upcoming = () => {
         }
 
         try {
-            const response = await fetch("http://localhost:5000/api/tasks", {
+            const response = await fetch("http://todo-spark.onrender.com:5000/api/tasks", {
                 method: "GET",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -83,7 +83,7 @@ const Upcoming = () => {
 
         try {
             const token = localStorage.getItem("authToken");
-            await fetch(`http://localhost:5000/api/tasks/${taskId}`, {
+            await fetch(`http://todo-spark.onrender.com:5000/api/tasks/${taskId}`, {
                 method: "PUT",
                 headers: {
                     Authorization: `Bearer ${token}`,
