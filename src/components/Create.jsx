@@ -18,7 +18,7 @@ const Create = () => {
             return;
         }
 
-        fetch('http://todo-spark.onrender.com:5000/lists', {
+        fetch('https://todo-spark.onrender.com:5000/lists', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${authToken}`,
@@ -88,7 +88,7 @@ const Create = () => {
         console.log("Before sending request, task object:", taskData); // Debug log
 
         try {
-            const response = await fetch("http://todo-spark.onrender.com:5000/api/tasks/create", {
+            const response = await fetch("https://todo-spark.onrender.com:5000/api/tasks/create", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
