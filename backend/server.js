@@ -21,7 +21,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: "http://localhost:5000/", // Frontend URL
+    origin: "https://sparktodo.onrender.com/", // Frontend URL
     credentials: true // Allow sending cookies
 }));
 

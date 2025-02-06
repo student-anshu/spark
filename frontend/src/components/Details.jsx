@@ -25,7 +25,7 @@ const Details = ({ task, closePanel, refreshTasks }) => {
                     return;
                 }
 
-                const response = await fetch("http://localhost:5000/lists", {
+                const response = await fetch("https://sparktodo.onrender.com/lists", {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -168,7 +168,7 @@ const Details = ({ task, closePanel, refreshTasks }) => {
                 return;
             }
 
-            const response = await fetch(`http://localhost:5000/api/tasks/${task._id}`, {
+            const response = await fetch(`https://sparktodo.onrender.com/api/tasks/${task._id}`, {
                 method: "DELETE",
                 headers: {
                     Authorization: `Bearer ${token}`,

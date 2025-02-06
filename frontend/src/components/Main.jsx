@@ -24,7 +24,7 @@ const Main = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/tasks", {
+      const response = await fetch("https://sparktodo.onrender.com/api/tasks", {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`,
@@ -58,7 +58,7 @@ const Main = () => {
 
     try {
       const token = localStorage.getItem('authToken');
-      await fetch(`http://localhost:5000/api/tasks/${taskId}`, {
+      await fetch(`https://sparktodo.onrender.com/api/tasks/${taskId}`, {
         method: "PUT",
         headers: {
           "Authorization": `Bearer ${token}`,
