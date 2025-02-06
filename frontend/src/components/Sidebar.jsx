@@ -30,7 +30,7 @@ const Sidebar = () => {
             return;
         }
 
-        fetch('https://todo-spark.onrender.com:5000/lists', {
+        fetch('http://localhost:5000/lists', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${authToken}`,
@@ -55,7 +55,7 @@ const Sidebar = () => {
         }
 
         try {
-            const response = await fetch(`https://todo-spark.onrender.com:5000/api/tasks/task/${listId}`, {
+            const response = await fetch(`http://localhost:5000/api/tasks/task/${listId}`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${authToken}`,
@@ -116,7 +116,7 @@ const Sidebar = () => {
         const authToken = localStorage.getItem("authToken");
 
         try {
-            const response = await fetch('https://todo-spark.onrender.com:5000/lists', {
+            const response = await fetch('http://localhost:5000/lists', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

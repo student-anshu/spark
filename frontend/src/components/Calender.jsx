@@ -22,7 +22,7 @@ const Calendar = () => {
             }
 
             try {
-                const response = await fetch("https://todo-spark.onrender.com:5000/api/tasks", {
+                const response = await fetch("http://localhost:5000/api/tasks", {
                     method: "GET",
                     headers: {
                         "Authorization": `Bearer ${token}`,
@@ -96,7 +96,7 @@ const Calendar = () => {
         }
 
         try {
-            const response = await fetch(`https://todo-spark.onrender.com:5000/api/tasks/${taskId}`, {
+            const response = await fetch(`http://localhost:5000/api/tasks/${taskId}`, {
                 method: "PATCH",
                 headers: {
                     "Authorization": `Bearer ${token}`,
