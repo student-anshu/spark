@@ -18,7 +18,7 @@ const Create = () => {
             return;
         }
 
-        fetch('http://localhost:5000/lists', {
+        fetch('https://sparktodo.onrender.com/lists', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${authToken}`,
